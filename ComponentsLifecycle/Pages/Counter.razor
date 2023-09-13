@@ -11,8 +11,25 @@
 @code {
     private int currentCount = 0;
 
+    [Parameter]
+    public int IncrementAmount { get; set; } = 1;
+
     private void IncrementCount()
     {
-        currentCount++;
+        //currentCount++;
+        currentCount += IncrementAmount;
     }
+
+
+    // if we override after render 
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+        Console.WriteLine("test fadi");
+    }
+    // press alt + shift + d => will see this (Unable to find debuggable browser tab)
+    // then copy the Link and windows + r and copy passet to then lanch the program in other page, then press alt + shift + d again to get to developer tools page
+
+    
+
 }
